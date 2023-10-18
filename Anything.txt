@@ -1,0 +1,15 @@
+//CREATEDS JOB (YOURJOB),'CREATE DATASET',CLASS=A,MSGCLASS=X
+//STEP1  EXEC PGM=IDCAMS
+//SYSPRINT DD  SYSOUT=A
+//SYSIN    DD  *
+   DEFINE CLUSTER (                          - Define a new dataset
+    NAME('Your.Dataset.Name')                - Specify the dataset name
+    VOLUMES('VOL001')                        - Specify the volume
+    CYLINDERS(10 10)                         - Define the space allocation
+    RECORDSIZE(80 80)                       - Specify the record size
+    KEYS(0 0)                               - Specify the key information
+    INDEXED                                 - Create an indexed dataset
+    SHAREOPTIONS(2 3))                      - Define sharing options
+/*
+
+//*
