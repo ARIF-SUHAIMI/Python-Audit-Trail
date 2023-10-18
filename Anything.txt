@@ -13,3 +13,15 @@
 /*
 
 //*
+
+
+
+
+//COPYJOB  JOB (YOURJOB),'COPY DATASET',CLASS=A,MSGCLASS=X
+//COPYSTEP EXEC PGM=IEBGENER
+//SYSPRINT DD  SYSOUT=A
+//SYSUT1   DD  DSN=source.dataset,           - Specify the source dataset
+//             DISP=SHR
+//SYSUT2   DD  DSN=target.dataset,           - Specify the target dataset
+//             DISP=(NEW,CATLG)
+
