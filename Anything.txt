@@ -25,3 +25,16 @@
 //SYSUT2   DD  DSN=target.dataset,           - Specify the target dataset
 //             DISP=(NEW,CATLG)
 
+
+
+
+
+
+//CREATEDS JOB (your-job-info),'Create Dataset',CLASS=A,MSGCLASS=X
+//STEP1  EXEC PGM=IEFBR14
+//SYSOUT DD  SYSOUT=A
+//MYDS    DD  DSN=your.dataset.name,  -- Replace with your dataset name
+//            DISP=(NEW,CATLG),       -- Creates a new dataset and catalogs it
+//            UNIT=SYSDA,             -- Storage unit, adjust as needed
+//            SPACE=(TRK,(1,1)),      -- Initial and secondary space allocation
+//            DCB=(RECFM=FB,LRECL=80)  -- Record format and logical record length
