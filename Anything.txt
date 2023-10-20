@@ -38,3 +38,50 @@
 //            UNIT=SYSDA,             -- Storage unit, adjust as needed
 //            SPACE=(TRK,(1,1)),      -- Initial and secondary space allocation
 //            DCB=(RECFM=FB,LRECL=80)  -- Record format and logical record length
+
+
+//TSRENAME  JOB 224T,'TSRENAME',CLASS=A,MSGCLASS=X,NOTIFY=&SYSUID,      
+//          REGION=6M                                                   
+//*---------------------------------------------------------------------
+//*--> TO RENAME                                                        
+//*---------------------------------------------------------------------
+//STEP001    EXEC PGM=IDCAMS                                            
+//SYSPRINT   DD SYSOUT=*                                                
+//SYSIN      DD *                                                       
+ ALTER   SUPPASU.JCL.FTP.TEST1               -                          
+         NEWNAME(SUPPASU.JCL.FTP.TEST2)                                 
+/*                                                                      
+//*                                                                     
+
+//TSCPNEW2  JOB 224T,'TSCPYNEW',CLASS=A,MSGCLASS=X,NOTIFY=&SYSUID,      
+//          REGION=6M                                                   
+//*---------------------------------------------------------------------
+//*--> TO CREATE NEW DATASET                                            
+//*---------------------------------------------------------------------
+//STEP1  EXEC PGM=IEFBR14                                               
+//DDNAME  DD  DSN=SUPPASU.JCL.DEV.TEST1,                                
+//            DISP=(NEW,CATLG),                                         
+//            UNIT=SYSALLDA,SPACE=(TRK,10),                             
+//            DCB=(RECFM=FB,LRECL=80,DSORG=PO)                          
+/*                                                                      
+
+
+
+
+//TSDELOLD  JOB 224T,'TSDELOLD',CLASS=A,MSGCLASS=X,NOTIFY=&SYSUID,      
+//          REGION=6M                                                   
+//*---------------------------------------------------------------------
+//*--> TO DELETE OLD DATASET                                            
+//*---------------------------------------------------------------------
+//STEP001  EXEC PGM=IEFBR14                                             
+//SYSPRINT  DD SYSOUT=*                                                 
+//SYSUT1    DD DSN=SUPPASU.JCL.FTP.TEST1,                               
+//             DISP=(OLD,DELETE,DELETE)                                 
+//*                                                                     
+
+
+
+
+
+
+
