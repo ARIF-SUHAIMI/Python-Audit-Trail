@@ -24,6 +24,8 @@ DSNL028I  -D1R2 GAC90E15.D538.240119013238=139497  435
              IPADDR ::172.22.23.107                                  
 
 
+dealing with a DB2 error (DSNT501I) with reason code 00C9008E and a subsequent abend (DSNL027I) for reason 00D3003B
+
 
 
 
