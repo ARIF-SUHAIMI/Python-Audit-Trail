@@ -1,0 +1,29 @@
+Dear IBM Support,
+
+We are currently facing issues with our production DB2 Subsystem. We encounter error code 000D3003B. We are seeking for more detailed information whether it indicates a system related issue.
+1.	Could you help to clarify if the error code indicates that this is a system related issue?
+2.	Any solutions or recommendations to rectify the issue?
+
+Error codes:
+DSNT501I  -D1R2 DSNILMCL RESOURCE UNAVAILABLE  235                   
+           CORRELATION-ID=dotnet                                     
+           CONNECTION-ID=SERVER                                      
+           LUW-ID=GAC90E15.O528.240119013742=147564                  
+           REASON 00C9008E                                           
+           TYPE 00000302                                             
+           NAME CI002AD .CIDEODDS.X'023226'                          
+DSNL027I  -D1R2 SERVER DISTRIBUTED AGENT WITH  434                   
+           LUWID=GAC90E15.D538.240119013238=139497                                                                                  
+THREAD-INFO=CMS2DB2P:db2-prod-37-cf2vb:CMS2DB2P:dotnet:*:*:*:<10.201.
+14.21.54584.240119013238>                                            
+           RECEIVED ABEND=04E                                        
+           FOR REASON=00D3003B                                       
+DSNL028I  -D1R2 GAC90E15.D538.240119013238=139497  435               
+           ACCESSING DATA FOR                                        
+             LOCATION ::172.22.23.107                                
+             IPADDR ::172.22.23.107                                  
+
+
+
+
+
