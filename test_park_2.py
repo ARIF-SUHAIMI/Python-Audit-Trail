@@ -1,3 +1,10 @@
+'''
+
+                            Online Python Compiler.
+                Code, Compile, Run and Debug python program online.
+Write your code in this editor and press "Run" button to execute it.
+
+'''
 import random
 import os
 import time
@@ -54,6 +61,16 @@ def calculation(price):
 
 # ----------------------------------------------------------------------------------
 
+def checkAMPM():
+	if inAMPM.upper() == "PM" or inAMPM.upper() == "AM":
+		return False;
+	else:
+		return True;
+
+
+
+# ----------------------------------------------------------------------------------
+
 
 while loop != -9:
     clear_terminal()
@@ -65,7 +82,7 @@ while loop != -9:
         inMin = input("Please enter entry Minute: ")
         inAMPM = input("Please enter AM or PM: ")
         print(inAMPM)
-        if int(inHour) > 12 or int(inHour) < 0 or int(inMin) > 59 or int(inMin) < 0 or inAMPM.upper() != "PM" or inAMPM.upper() != "AM":
+        if int(inHour) > 12 or int(inHour) < 0 or int(inMin) > 59 or int(inMin) < 0 or checkAMPM():
             boolEntry = False
             print("Please insert valid time!!!")
             time.sleep(2)
