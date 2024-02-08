@@ -79,6 +79,23 @@
 //             DISP=(OLD,DELETE,DELETE)                                 
 //*                                                                     
 
+-- For tables
+SELECT 'CREATE TABLE ' || CREATOR || '.' || NAME || ' (' ||
+       LISTAGG(COLNAME || ' ' || TYPENAME || ' ' || 
+               CASE WHEN LENGTH || SCALE > 0 THEN '(' || LENGTH || ',' || SCALE || ')' ELSE '' END, ', ')
+       WITHIN GROUP (ORDER BY COLNO) || ');'
+FROM SYSIBM.SYSCOLUMNS
+WHERE CREATOR = 'YourSchema'
+  AND TBNAME = 'YourTable'
+GROUP BY CREATOR, NAME;
+
+-- For indexes
+SELECT 'CREATE INDEX ' || NAME || ' ON ' || TBNAME || ' (' ||
+       LISTAGG(COLNAMES, ', ') WITHIN GROUP (ORDER BY COLSEQ) || ');'
+FROM SYSIBM.SYSINDEXES
+JOIN SYSIBM.SYSINDEXPART ON SYSINDEXES.CREATOR = SYSINDEXPART.IXCREATOR AND SYSINDEXES.NAME = SYSINDEXPART.IXNAME
+WHERE TBNAME = 'YourTable'
+GROUP BY NAME, TBNAME;
 
 
 
